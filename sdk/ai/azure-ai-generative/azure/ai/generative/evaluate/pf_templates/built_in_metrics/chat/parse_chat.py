@@ -36,6 +36,10 @@ def parse_chat(chat: list) -> dict:
                     retrieved_documents = json.dumps(each_turn["context"]["citations"])
                 except KeyError:
                     retrieved_documents = None
+                try:
+                    retrieved_documents = json.dumps(each_turn["context"]["citations"])
+                except KeyError:
+                    retrieved_documents = None
                 retrieved_documents_per_chat.append(retrieved_documents)
             
     parsed_chat["questions"] = questions
